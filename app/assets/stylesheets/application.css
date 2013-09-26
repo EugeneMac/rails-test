@@ -11,3 +11,28 @@
  *= require_self
  *= require_tree .
  */
+* {margin: 0; padding: 0;}
+
+div {
+width: 500px; 
+height: 100%; 
+background: #CCCCCC; 
+margin: 0 auto;
+}
+
+table {
+	text-align: center;
+	margin: 0 auto;
+}
+
+.comment {
+text-align: left;	
+}
+
+.blog {
+text-align: left;	
+}
+
+.comment-text{
+text-align: left;		
+}

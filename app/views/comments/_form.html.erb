@@ -1,3 +1,4 @@
+<div class="comment">
 <%= form_for([@post, @post.comments.build]) do |f| %>
   <p>
     <%= f.label :commenter %><br />
@@ -11,3 +12,4 @@
     <%= f.submit %>
   </p>
 <% end %>
+</div>

@@ -1,3 +1,4 @@
+<p id="notice"><%= notice %></p>
 <p>
   <strong>Title:</strong>
   <%= @post.title %>
@@ -6,6 +7,11 @@
 <p>
   <strong>Text:</strong>
   <%= @post.text %>
+</p>
+
+<p>
+  <b>Tags:</b>
+  <%= join_tags(@post) %>
 </p>
 
 <h2>Comments</h2>

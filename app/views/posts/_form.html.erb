@@ -1,9 +1,10 @@
+<div class="blog">
 <% @post.tags.build %>
 <%= form_for @post do |f| %>
   <% if @post.errors.any? %>
   <div id="errorExplanation">
-    <h2><%= pluralize(@post.errors.count, "error") %> prohibited
-      this post from being saved:</h2>
+    <b><%= pluralize(@post.errors.count, "error") %> prohibited
+      this post from being saved:</b>
     <ul>
     <% @post.errors.full_messages.each do |msg| %>
       <li><%= msg %></li>
@@ -21,10 +22,10 @@
     <%= f.text_area :text %>
   </p>
  
- <h2>Tags</h2>
   <%= render :partial => 'tags/form', :locals => {:form => f} %>
   
    <p>
     <%= f.submit %>
   </p>
 <% end %>
+</div>

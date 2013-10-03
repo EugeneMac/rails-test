@@ -21,9 +21,10 @@ group :assets do
 end
 
 gem 'jquery-rails'
-gem 'strong_parameters'
+#gem 'strong_parameters'
 gem 'will_paginate','~>3.0.5'
 gem 'devise'
+
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'

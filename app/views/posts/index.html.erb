@@ -3,6 +3,7 @@
 <div align="left"><%= link_to 'New post', new_post_path %></div>
 <table cellspacing="10em">
   <tr>
+  	<th>Id</th>
     <th>Title</th>
     <th>Text</th>
     <th>Control</th>
@@ -13,6 +14,7 @@
  
 <% @posts.each do |post| %>
   <tr>
+    <td><%= post.id %></td>
     <td><%= post.title %></td>
     <td><%= post.text %></td>
     <td><%= link_to 'Show', post %></td>
@@ -21,7 +23,7 @@
                     method: :delete, data: { confirm: 'Are you sure?' } %></td>
     <td><% post.tags.each do |t| %>
     	<b>
-      		<%=	t.name %>
+      		<%=	link_to t.name, '?tag='+t.name %>
       	</b>
       	<%	end  %>
     </td>                

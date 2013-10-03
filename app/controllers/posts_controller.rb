@@ -14,9 +14,13 @@ class PostsController < ApplicationController
   end
   
   def index
-    @posts = Post.paginate(:page => params[:page], :per_page => 5)
-    
-  end
+    #@posts = Post.paginate(:page => params[:page], :per_page => 5)
+    if (params.has_key?(:tag))
+     @posts =  Post.joins(:tags).where("tags.name =?", params[:tag]).paginate(:page => params[:page], :per_page => 5) 
+    else
+     @posts = Post.paginate(:page => params[:page], :per_page => 5)
+    end 
+  end  
   
   def edit
     @post = Post.find(params[:id])
@@ -47,6 +51,10 @@ class PostsController < ApplicationController
     @post.destroy
  
     redirect_to posts_path
+  end
+  
+  def tag
+    
   end
     
   private

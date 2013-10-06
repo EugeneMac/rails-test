@@ -37,7 +37,10 @@ text-align: left;
 text-align: left;		
 }
 
-.notice{
+.alert{
 color: #800000;
 }
 
+.notice{
+text-align: left;
+}

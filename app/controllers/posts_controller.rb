@@ -3,6 +3,7 @@ class PostsController < ApplicationController
   def new
     @post = Post.new
     @post.user = current_user
+    flash[:notice] = ""
   end
   
   def create
@@ -16,9 +17,12 @@ class PostsController < ApplicationController
   end
   
   def index
-    #@posts = Post.paginate(:page => params[:page], :per_page => 5)
-    if (params.has_key?(:tag))
+    if (params.has_key?(:tag)) #I guess it's not safety!
      @posts =  Post.joins(:tags).where("tags.name =?", params[:tag]).paginate(:page => params[:page], :per_page => 5) 
+     flash[:notice] = "Posts tagged: "+params[:tag]
+    elsif (params.has_key?(:author))  #not safety either
+     @posts =  Post.joins(:user).where("users.email =?", params[:author]).paginate(:page => params[:page], :per_page => 5)
+     flash[:notice] = "Posts by: "+params[:author]
     else
      @posts = Post.paginate(:page => params[:page], :per_page => 5)
     end 
@@ -30,6 +34,7 @@ class PostsController < ApplicationController
   
   def show
     @post = Post.find(params[:id])
+    flash[:notice] = ""
   end
   
   def update

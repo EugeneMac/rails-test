@@ -2,8 +2,8 @@
 
 <p>
   <strong>Author:</strong>
-  <% if user_signed_in? %>
-  <%= current_user.email %>
+  <% if @post.user.respond_to?('email') %>
+  <%= @post.user.email %>
   <% end %>
 </p>
 

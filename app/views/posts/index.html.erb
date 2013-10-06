@@ -8,7 +8,7 @@
 	</div>
 <table cellspacing="10em">
   <tr>
-  	<th>Id</th>
+  	<th>Author</th>
     <th>Title</th>
     <th>Text</th>
     <th>Options</th>
@@ -19,20 +19,16 @@
  
 <% @posts.each do |post| %>
   <tr>
-    <td><%= post.id %></td>
-    <td><%= post.title %></td>
-    <td><%= post.text %></td>
-    <td><%= link_to 'Show', post %>
-    </td>
-    	<td>
-    		<% if user_signed_in? %>
-    		<%= link_to 'Edit', edit_post_path(post) %>
-    		<% else %> Sign In To Edit
+    	<td style="text-align: left"><% if post.user.respond_to?('email') %>
+    		<%= post.user.email %>
     		<% end %>
     	</td>
-    <td><%= link_to 'Destroy', post_path(post),
-                    method: :delete, data: { confirm: 'Are you sure?' } %></td>
-    <td><% post.tags.each do |t| %>
+    <td style="text-align: left"><%= link_to post.title[0,10]+'...', post %></td>
+    <td style="text-align: left"><%= link_to post.text[0,10]+'...', post %></td>
+    <td style="text-align: left"><%= link_to 'Show', post %></td>
+    <td style="text-align: left"></td>
+    <td style="text-align: left"></td>
+    <td style="text-align: left"><% post.tags.each do |t| %>
     	<b>
       		<%=	link_to t.name, '?tag='+t.name %>
       	</b>

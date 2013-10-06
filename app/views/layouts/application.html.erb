@@ -9,10 +9,10 @@
 <body style="background: #EEEEEE; text-align: center">
 
 <% if notice %>
-  <p class="alert alert-notice"><%= notice %></p>
+  <div class="notice"><%= notice %></div>
 <% end %>
 <% if alert %>
-  <p class="alert alert-error"><%= alert %></p>
+  <div class="notice"><%= alert %></div>
 <% end %>
 
 <%= yield %>

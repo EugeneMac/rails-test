@@ -1,3 +1,9 @@
+<div class="floatright">Logged as: 
+<% if user_signed_in? %>
+<strong><%= ' '+current_user.email %></strong>
+<% else %><strong> Anonymous</strong>	
+<% end %>	
+</div>
 <div>
 <h2 align="left">Posts</h2>
 	<div align="left">
@@ -12,7 +18,7 @@
     <th>Title</th>
     <th>Text</th>
     <th>Options</th>
-    <th></th>
+    <th>Created</th>
     <th></th>
     <th>Tags</th>
   </tr>
@@ -26,7 +32,7 @@
     <td style="text-align: left"><%= link_to post.title[0,10]+'...', post %></td>
     <td style="text-align: left"><%= link_to post.text[0,10]+'...', post %></td>
     <td style="text-align: left"><%= link_to 'Show', post %></td>
-    <td style="text-align: left"></td>
+    <td style="text-align: left"><%= post.created_at.strftime("%B %d, %Y") %></td>
     <td style="text-align: left"></td>
     <td style="text-align: left"><% post.tags.each do |t| %>
     	<b>

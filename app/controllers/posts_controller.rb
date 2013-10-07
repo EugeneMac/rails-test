@@ -17,6 +17,7 @@ class PostsController < ApplicationController
   end
   
   def index
+    flash[:notice] = ""
     if (params.has_key?(:tag)) #I guess it's not safety!
      @posts =  Post.joins(:tags).where("tags.name =?", params[:tag]).paginate(:page => params[:page], :per_page => 5) 
      flash[:notice] = "Posts tagged: "+params[:tag]

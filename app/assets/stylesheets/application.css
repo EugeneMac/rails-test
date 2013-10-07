@@ -41,13 +41,15 @@ text-align: left;
 color: #800000;
 }
 
-.notice{
-text-align: left;
+.notice h2{
+text-align: center;
+color: #640000;
 }
 
 .floatright{
 	float: right;
 	overflow: auto;
-	text-align: left;
+	text-align: right;
 	width: 300px;
+	padding-right: 50px;
 }

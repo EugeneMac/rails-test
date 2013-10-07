@@ -1,17 +1,21 @@
 <div class="comment-text">
 <p>
   <strong>User:</strong>
+  <% if comment.commenter %>
   <%= comment.commenter %>
+  <% else %>Anonymous
+  <% end %>
 </p>
  
 <p>
   <strong>Comment:</strong>
   <%= comment.body %>
-</p>
+</p><hr>
 </div>
 
+<% if user_signed_in? && current_user.email == 'ujeen1980@gmail.com' %>  <%# hardcoded temporarely %> 
 <p>
-  <%= link_to 'Delete Comment', [comment.post, comment],
-               method: :delete,
-               data: { confirm: 'Are you sure?' } %>
+   
+  <%= link_to 'Delete Comment', [comment.post, comment], method: :delete, data: { confirm: 'Are you sure?' } %>
 </p>
+<% end %>

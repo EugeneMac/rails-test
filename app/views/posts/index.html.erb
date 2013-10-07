@@ -1,9 +1,3 @@
-<div class="floatright">Logged as: 
-<% if user_signed_in? %>
-<strong><%= ' '+current_user.email %></strong>
-<% else %><strong> Anonymous</strong>	
-<% end %>	
-</div>
 <div>
 <h2 align="left">Posts</h2>
 	<div align="left">
@@ -27,6 +21,7 @@
   <tr>
     	<td style="text-align: left"><% if post.user.respond_to?('email') %>
     		<%= link_to post.user.email, '?author='+post.user.email %>
+    		<% else %>Anonymous
     		<% end %>
     	</td>
     <td style="text-align: left"><%= link_to post.title[0,10]+'...', post %></td>

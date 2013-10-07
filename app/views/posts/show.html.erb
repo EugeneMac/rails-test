@@ -4,6 +4,7 @@
   <strong>Author:</strong>
   <% if @post.user.respond_to?('email') %>
   <%= @post.user.email %>
+  <% else %> Anonymous
   <% end %>
 </p>
 

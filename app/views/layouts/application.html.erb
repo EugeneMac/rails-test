@@ -8,9 +8,23 @@
 </head>
 <body style="background: #EEEEEE; text-align: center">
 
+<div class="floatright">Logged as: 
+	<% if user_signed_in? %>
+		<strong><%= ' '+current_user.email %></strong>
+	<% else %><strong> Anonymous</strong>
+		<%= link_to "Sign up", new_user_registration_path, :class => 'navbar-link'  %> |
+    	<%= link_to "Login", new_user_session_path, :class => 'navbar-link'  %>	
+	<% end %>
+	
+	<p><%= link_to 'Home', posts_path %>
+	<p><%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %>		
+	<p><%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %>
+			
+</div>
 <% if notice %>
   <div class="notice"><h2><h2><%= notice %></h2></div>
 <% end %>
+
 <% if alert %>
   <div class="alert"><%= alert %></div>
 <% end %>
